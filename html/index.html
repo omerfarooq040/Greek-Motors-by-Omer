@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Greek Motors</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Greek Motors</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Slider Section -->
+    <section id="home">
+        <div class="slider">
+            <div class="slide active">
+                <img src="car2.jpg" alt="Car 2">
+                <div class="caption"> Experience the Best with Audi </div>
+            </div>
+            <div class="slide">
+                <img src="car3.jpg" alt="Car 3">
+                <div class="caption">Mercedes Premium Range</div>
+            </div>
+            <div class="slide">
+                <img src="car1.jpg" alt="Car 1">
+                <div class="caption">Luxury Cars at Greek Motors</div>
+            </div>
+            <button class="prev" onclick="prevSlide()">&#10094;</button>
+            <button class="next" onclick="nextSlide()">&#10095;</button>
+        </div>
+    </section>
+
+    <!-- About Section with Modal -->
+    <section id="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>Greek Motors is a trusted name in the automotive industry...</p>
+            <button id="openModalBtn">Read More</button>
+        </div>
+
+        <!-- Modal -->
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>About Greek Motors</h2>
+                <p>At Greek Motors, we are passionate about driving innovation and performance in the automotive industry. Rooted in Greece's rich tradition of engineering excellence, we provide top-quality motor vehicles and services that combine cutting-edge technology with a deep respect for our heritage. Our team is dedicated to delivering reliability, efficiency, and unmatched customer service, making us a trusted partner for all your automotive needs. Whether you're looking for powerful engines, eco-friendly solutions, or expert advice, Greek Motors is here to drive your journey forward.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section with Accordion -->
+    <section id="services">
+        <div class="container">
+            <h2>Our Services</h2>
+
+            <!-- Accordion -->
+            <div class="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header">New Car Sales</div>
+                    <div class="accordion-body">
+                        <p>Our collection of new vehicles showcases the latest in automotive technology, comfort, and design. We take pride in offering a diverse range of models that cater to every lifestyle—whether you're looking for a sleek sedan, a rugged SUV, or an eco-friendly hybrid. Each new car comes with a full warranty and the assurance of quality that defines Greek Motors.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">Used Car Sales</div>
+                    <div class="accordion-body">
+                        <p>Our selection of pre-owned vehicles is thoroughly inspected to meet the highest standards of safety and reliability. We understand that buying a used car is an important decision, and that's why we offer detailed vehicle history reports, competitive pricing, and flexible financing options. At Greek Motors, you can trust that every used car on our lot has been carefully chosen to provide excellent value and performance.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">Car Financing</div>
+                    <div class="accordion-body">
+                        <p>We believe that purchasing your next car should be as seamless as possible. Our financing experts work with a variety of lenders to provide you with the best possible rates and terms, whether you're buying new or used. We offer customized financing options that fit your budget, with clear and transparent terms. At Greek Motors, we’re committed to helping you drive away in your dream car with confidence.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>Email: <a href="mailto:omerfarooq01012@gmail.com">omerfarooq01012@gmail.com</a></p>
+            <p>Phone: 0306-6612278</p>
+            <p>Address: Wah Cantt, Rawalpindi</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Greek Motors | Thanks For Visiting Us.</p>
+        </div>
+    </footer>
+
+    <!-- Link to the external JavaScript file (web.js) -->
+    <script src="web.js"></script>
+</body>
+</html>
