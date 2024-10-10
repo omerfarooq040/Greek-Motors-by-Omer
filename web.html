@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Greek Motors</title>
+    <link rel="stylesheet" href="style.css">
+    <style>/* General Styles */
+        body, h1, h2, p {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        header {
+            background: linear-gradient(90deg, #0c47a1, #1a73e8);
+            color: white;
+            padding: 20px;
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+        }
+        
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        nav ul li {
+            display: inline-block;
+            margin: 0 15px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        /* Slider Styles */
+        .slider {
+            position: relative;
+            max-width: 1000px;
+            margin: 30px auto;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+        
+        .slide {
+            display: none;
+        }
+        
+        .slide img {
+            width: 100%;
+        }
+        
+        .slide.active {
+            display: block;
+        }
+        
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+        
+        .prev {
+            left: 0;
+        }
+        
+        .next {
+            right: 0;
+        }
+        
+        .caption {
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px;
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            font-size: 1.2rem;
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        
+        .modal-content {
+            background-color: white;
+            margin: 15% auto;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 600px;
+            text-align: left;
+        }
+        
+        .close {
+            color: red;
+            float: right;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* Accordion Styles */
+        .accordion-header {
+            background-color: #1a73e8;
+            color: white;
+            padding: 15px;
+            cursor: pointer;
+            text-align: left;
+        }
+        
+        .accordion-body {
+            display: none;
+            background-color: #f1f1f1;
+            padding: 15px;
+        }
+        
+        .accordion-item {
+            margin: 10px 0;
+        }
+        
+        /* Footer Styles */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+        }
+        .services{
+            form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+label {
+    margin-top: 10px;
+}
+
+input {
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Error message styling */
+.error {
+    color: red;
+    font-size: 0.9em;
+    visibility: hidden;
+}
+
+input:invalid {
+    border-color: red;
+}
+
+        }
+        </style>
+        <script src="new.js"></script>
+</head>
+<body>
+  
+
+    <header>
+        <div class="container">
+            <h1>Greek Motors</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services ">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Slider Section -->
+    <section id="home">
+        <div class="slider">
+            <div class="slide active">
+                <img src="WhatsApp Image 2024-10-10 at 19.33.51_2dfddb02.jpg" alt="">
+                <div class="caption"> Experience the Best with Audi </div>
+            </div>
+            <div class="slide">
+                <img src="WhatsApp Image 2024-10-10 at 19.33.52_54b0a55c.jpg" alt="">
+                <div class="caption">Mercedes Premium Range</div>
+            </div>
+            <div class="slide">
+                <img src="WhatsApp Image 2024-10-10 at 19.33.52_df8f7285.jpg" alt="">
+                <div class="caption">Luxury Cars at Greek Motors</div>
+            </div>
+            <button class="prev" onclick="prevSlide()">&#10094;</button>
+            <button class="next" onclick="nextSlide()">&#10095;</button>
+        </div>
+    </section>
+
+    <!-- About Section with Modal -->
+    <section id="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>Greek Motors is a trusted name in the automotive industry...</p>
+            <button id="openModalBtn">Read More</button>
+        </div>
+
+        <!-- Modal -->
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>About Greek Motors</h2>
+                <p>At Greek Motors, we are passionate about driving innovation and performance in the automotive industry. Rooted in Greece's rich tradition of engineering excellence, we provide top-quality motor vehicles and services that combine cutting-edge technology with a deep respect for our heritage. Our team is dedicated to delivering reliability, efficiency, and unmatched customer service, making us a trusted partner for all your automotive needs. Whether you're looking for powerful engines, eco-friendly solutions, or expert advice, Greek Motors is here to drive your journey forward.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section with Accordion -->
+    <section id="services">
+        <div class="container">
+            <h2>Our Services</h2>
+
+            <!-- Accordion -->
+            <div class="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header">New Car Sales</div>
+                    <div class="accordion-body">
+                        <p>Our collection of new vehicles showcases the latest in automotive technology, comfort, and design. We take pride in offering a diverse range of models that cater to every lifestyle—whether you're looking for a sleek sedan, a rugged SUV, or an eco-friendly hybrid. Each new car comes with a full warranty and the assurance of quality that defines Greek Motors.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">Used Car Sales</div>
+                    <div class="accordion-body">
+                        <p>Our selection of pre-owned vehicles is thoroughly inspected to meet the highest standards of safety and reliability. We understand that buying a used car is an important decision, and that's why we offer detailed vehicle history reports, competitive pricing, and flexible financing options. At Greek Motors, you can trust that every used car on our lot has been carefully chosen to provide excellent value and performance.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">Car Financing</div>
+                    <div class="accordion-body">
+                        <p>We believe that purchasing your next car should be as seamless as possible. Our financing experts work with a variety of lenders to provide you with the best possible rates and terms, whether you're buying new or used. We offer customized financing options that fit your budget, with clear and transparent terms. At Greek Motors, we’re committed to helping you drive away in your dream car with confidence.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>Email: <a href="mailto:omerfarooq01012@gmail.com">omerfarooq01012@gmail.com</a></p>
+            <p>Phone: 0306-6612278</p>
+            <p>Address: Wah Cantt, Rawalpindi</p>
+        </div>
+    </section>
+
+    <footer class="services">
+        <h1">Reservation Form</h1>
+
+        <!-- Reservation form structure -->
+        <form id="reservationForm" novalidate>
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
+            <span class="error" id="nameError"></span>
+    
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Your Email" required>
+            <span class="error" id="emailError"></span>
+    
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="Your Phone Number" pattern="^\d{10}$" required>
+            <span class="error" id="phoneError"></span>
+    
+            <label for="date">Reservation Date</label>
+            <input type="date" id="date" name="date" required>
+            <span class="error" id="dateError"></span>
+    
+            <label for="time">Reservation Time</label>
+            <input type="time" id="time" name="time" required>
+            <span class="error" id="timeError"></span>
+    
+            <label for="guests">Number of Guests</label>
+            <input type="number" id="guests" name="guests" min="1" max="20" required>
+            <span class="error" id="guestsError"></span>
+    
+            <button type="submit">Submit Reservation</button>
+        </form>
+    
+        <!-- External JavaScript for form validation -->
+        <script src="reservation.js"></script>
+        <div class="container">
+            <p>&copy; 2024 Greek Motors | Thanks For Visiting Us.</p>
+        </div>
+    </footer>
+
+    <!-- Link to the external JavaScript file (web.js) -->
+    <script src="web.js"></script>
+</body>
+</html>
